@@ -1,8 +1,9 @@
 # automated-wireguard
-###### A python-script to securely automate the basic installation as well as the generation of multiple clients of your linux wireguard client
+### A python-script to securely automate the basic installation as well as the generation of multiple clients of your linux wireguard client
 
 The Script will do the basic installation and adds after every re-execution a new client with a unique ipv4. 
-**first-time-installation on raw linux-server
+
+**first-time-installation on raw linux-server**
 
 - log in to privileged user:
 ```
