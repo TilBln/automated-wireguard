@@ -43,7 +43,7 @@ cat qrencode ansiutf8...
 chown -R root:root /etc/wireguard/
 chmod -R og-rwx /etc/wireguard/*
 ```
-**generation of following clients
+**generation of following clients**
 
 - just execute the script again:
 ```
