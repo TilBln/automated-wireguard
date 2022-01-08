@@ -24,7 +24,7 @@ cd /etc/wireguard
 ```
 - install the installation script:
 ```
-wget
+wget https://raw.githubusercontent.com/TilBln/automated-wireguard/main/automated_wg.py
 ```
 - adjust the variables at the top of the script:
 ```
