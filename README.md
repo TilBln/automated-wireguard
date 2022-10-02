@@ -1,63 +1,31 @@
-# automated-wireguard
-### A python-script to securely automate the basic installation as well as the generation of multiple clients of your linux wireguard client
+# AutomatedWireGuard
+### A python-script to securely automate the first-time-installation as well as the generation of multiple clients on your Linux WireGuard-server.
 
-The Script will do the basic installation and adds after every re-execution a new client with a unique ipv4. 
+The Script will do the basic installation and adds after every re-execution a new client with a unique ipv4.
+You can costumize multiple variables while first-time-installation, e.g. the config file names or the used port.
+The total number of existing clients is saved in /etc/wireguard/total_clients.txt and the variables of the first-time-installation are being saved in /etc/wireguard/variables.txt. If you want to change any variables, just delete the variables.txt. Next time you want to create a new client, the script will ask you for each variable again.
 
-**first-time-installation on raw linux-server**
+!For Proxmox-Users it is recommended to just download the file into a ubuntu-22.04 container template and execute it!
+
+**first-time-installation on raw linux-server / Proxmox-Container**
 
 - log in to privileged user:
 ```
 sudo su
 ```
-- update your system and install wireguard:
+- download the script:
 ```
-apt-get update -y && apt-get upgrade -y && apt-get install wireguard -y
-cd /etc/wireguard
-umask 077
-```
-- turn on net.ipv4.ip_forward:
-```
-perl -pi -e 's/#{1,}?net.ipv4.ip_forward ?= ?(0|1)/net.ipv4.ip_forward = 1/g' /etc/sysctl.conf
-reboot now
-sudo su
-cd /etc/wireguard
-```
-- install the installation script:
-```
-wget https://raw.githubusercontent.com/TilBln/automated-wireguard/main/automated_wg.py
-```
-- adjust the variables at the top of the script:
-```
-nano automated_wg.py
+wget https://github.com/TilBln/automated-wireguard/raw/main/automated_wg.py
 ```
 - execute the script:
 ```
 python3 automated_wg.py
 ```
-- follow the instructions above in your shell to generate qr-code for the mobile app:
-```
-cat qrencode ansiutf8...
-```
-- adjust permissions:
-```
-chown -R root:root /etc/wireguard/
-chmod -R og-rwx /etc/wireguard/*
-```
+- follow instrucions displayed in your command-prompt.
+
 **generation of following clients**
 
-- just execute the script again:
+- just re-execute the script to generate a new client.
 ```
-cd /etc/wireguard
 python3 automated_wg.py
 ```
-- generate qr-code as shown above:
-```
-cat qrencode ansiutf8...
-```
-- adjust permissions:
-```
-chown -R root:root /etc/wireguard/
-chmod -R og-rwx /etc/wireguard/*
-```
-
-##That's it!##
