@@ -2,8 +2,6 @@ from pathlib import Path
 import os
 os.system('ls')
 
-
-print('Welcome to the AutomatedWireGuard-Script.\nIt will help you install a fully working WireGuard-Server.\n')
 ##check whether the server keyfiles already exist
 server_public_keyfile = Path('/etc/wireguard/server-public.key')
 server_private_keyfile = Path('/etc/wireguard/server-private.key')
