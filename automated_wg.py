@@ -68,7 +68,7 @@ if first_time_installation_marker == 1 or vc == 0:
     wg_port = input ('Which port (needs to be open!) should be used for your wireguard? For default (51900) press enter. ')
     if wg_port == '':
         wg_port = '51900'
-    DNS = input('What DNS should be used by your clients? For default CloudFlare (1.0.0.1) press enter. ')
+    DNS = input('Which DNS should be used by your clients? For default CloudFlare (1.0.0.1) press enter. ')
     if DNS == '':
         DNS = '1.0.0.1'
     domain = input('Via which domain should the WireGuard-server be reached? (E.g. your.domain.com) ')
